@@ -1,76 +1,46 @@
 <template>
-  <header class="header">
-    <img src="https://www.sunniejs.cn/static/weapp/logo.png" /><span> {{ $t('title') }}</span>
-  </header>
-  <div class="intro-header">
-    <div>{{ $t('introduction') }}</div>
-    <a href="https://github.com/sunniejs/vue-h5-template.git">
-      <nut-icon name="github" />
-    </a>
+  <nut-navbar :left-show="false" title="长银消费金融" />
+  <nut-image src="/src/assets/长银消费金融.png" width="100%" height="20%" fit="contain" class="image" />
+
+  <!-- <step1></step1> -->
+  <div class="wrapper">
+    <div></div>
+    <div class="credit">
+      <nut-button class="btn" type="primary" @click="submit1">申请授信</nut-button>
+    </div>
   </div>
-  <nut-cell-group :title="$t('home.support')" class="supportList">
-    <nut-cell v-for="(item, index) in cellList" :key="index" :title="item" icon="Check" />
-  </nut-cell-group>
-  <div class="btn-wrap">
-    <nut-button shape="square" size="small" type="default" @click="changeLang('zh-cn')">
-      {{ $t('language.zh') }}
-    </nut-button>
-    <nut-button shape="square" size="small" type="default" @click="changeLang('en-us')">
-      {{ $t('language.en') }}
-    </nut-button>
-  </div>
-  {{ getUserInfo }}
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue';
-  import { useUserStore } from '/@/store/modules/user';
-  import { setLang } from '/@/i18n';
+  import router from '/@/router';
 
-  let cellList = ['vue3', 'vite', 'vue-router', 'axios', 'Pinia', 'vue-i18n', 'vue-jsx', 'vatlet/vant/nutUI'];
-  const userStore = useUserStore();
-  const getUserInfo = computed(() => {
-    const { name = '' } = userStore.getUserInfo || {};
-    return name;
-  });
-
-  const changeLang = (type) => {
-    setLang(type);
+  const submit1 = () => {
+    router.replace('/creditApplication');
   };
 </script>
-<style lang="scss">
-  .header {
+
+<style scoped>
+  .nut-button {
+    margin-bottom: 10px;
+  }
+
+  .image {
+    margin-bottom: 100px;
+  }
+
+  .nut-navbar {
+    margin-bottom: 0;
+  }
+
+  .wrapper {
+    height: auto;
+    width: auto;
+    /* background-image: url('/@/assets/授信.jpeg'); */
+  }
+
+  .credit {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 40px;
-    img {
-      width: 90px;
-      height: 90px;
-    }
-  }
-
-  .intro-header {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  .supportList {
-    margin: 0 16px;
-
-    .nut-cell-group__title {
-      margin-top: 30px;
-    }
-    .nut-icon {
-      color: green;
-    }
-  }
-
-  .btn-wrap {
-    margin: 20px;
+    justify-content: space-around;
+    margin-bottom: 150px;
   }
 </style>

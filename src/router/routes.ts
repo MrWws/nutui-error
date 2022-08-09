@@ -5,6 +5,14 @@ const routes = [
     component: () => import('/@/layout/basic/index.vue'),
     children: [
       {
+        path: 'creditApplication',
+        component: () => import('/@/views/creditExtension/creditApplication.vue'),
+        meta: {
+          title: 'tabbar.home',
+          keepAlive: true,
+        },
+      },
+      {
         path: 'home',
         component: () => import('/@/views/home/index.vue'),
         meta: {

@@ -10,3 +10,18 @@ export function loginPassword() {
     data: { name: '123' },
   });
 }
+
+// 授信申请
+export function getCreditApplicationResults(params) {
+  return useAxiosApi('/check/apply', {
+    method: 'POST',
+    data: params,
+  });
+}
+// 授信查询
+export function getCreditQueryResults(params) {
+  return useAxiosApi('/check/query', {
+    method: 'POST',
+    data: params,
+  });
+}

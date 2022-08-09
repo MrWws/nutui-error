@@ -44,17 +44,17 @@ instance.interceptors.response.use(
    */
   (response) => {
     const res = response.data;
-    // if the custom code is not 200, it is judged as an error.
-    if (res.code !== 200) {
-      Toast(res.msg);
-      // 412: Token expired;
-      if (res.code === 412) {
-        // store.dispatch('user/userLogout');
-      }
-      return Promise.reject(res.msg || 'Error');
-    } else {
+    // // if the custom code is not 200, it is judged as an error.
+    // if (res.code !== 200) {
+    //   Toast(res.msg);
+    //   // 412: Token expired;
+    //   if (res.code === 412) {
+    //     // store.dispatch('user/userLogout');
+    //   }
+    //   return Promise.reject(res.msg || 'Error');
+    // } else {
       return res;
-    }
+    // }
   },
   (error) => {
     console.log('err' + error);

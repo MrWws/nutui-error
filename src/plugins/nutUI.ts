@@ -33,6 +33,8 @@ import {
   Card,
   Grid,
   GridItem,
+  RadioGroup,
+  Radio
 } from '@nutui/nutui';
 
 export const nutUiComponents = [
@@ -68,4 +70,6 @@ export const nutUiComponents = [
   Card,
   Grid,
   GridItem,
+  RadioGroup,
+  Radio
 ];
